@@ -1,0 +1,50 @@
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - ask_exercise
+  - ask_eat_healthy
+  - ask_lower_stress
+
+responses:
+  utter_greet:
+  - text: "Hey! How Can I help you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am flexy, powered by Flexydial."
+
+  utter_stress_info:
+  - text: "Feeling stressed is natural, but managing it is key. Try activities like deep breathing, meditation, or going for a walk. Remember, it's okay to take a break and relax."
+
+  utter_exercise_info:
+  - text: "Regular exercise is crucial for maintaining good health. The American Heart Association recommends at least 150 minutes of moderate-intensity aerobic activity or 75 minutes of vigorous-intensity aerobic activity per week, along with muscle-strengthening activities at least two days a week."
+
+  utter_diet_info:
+  - text: "Maintaining a healthy diet is essential for overall well-being. A balanced diet includes a variety of fruits, vegetables, whole grains, lean proteins, and healthy fats."
+
+actions:
+  - action_hello_world
+  
+
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

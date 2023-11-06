@@ -1,0 +1,90 @@
+docker run --user 1000 -v $(pwd):/app rasa/rasa:1.10.7-full init --no-prompt
+
+docker run --user 1000 -it -v $(pwd):/app rasa/rasa:1.10.7-full init --no-prompt
+
+docker run --user 1000 -it -v $(pwd):/app rasa/rasa:1.10.7-full shell
+
+docker run --user 1000 -it -v $(pwd):/app rasa/rasa:1.10.7-full train
+
+docker run --user 1000 -v $(pwd):/app rasa/rasa:1.10.7-full train
+
+docker run --user 1000 -it -v $(pwd):/app rasa/rasa:1.10.7-full shell
+
+
+
+link action server and rasa server
+
+mkdir actions
+
+touch __init__.py
+
+move the actions.py to actions
+
+touch Dockerfile
+
+FROM rasa/rasa-sdk:1.10.2
+
+WORKDIR /app
+
+uncomment the code in actions.py
+
+# Copy actions/requirements.txt ./
+
+USER root
+
+COPY ./actions /app/actions
+
+# RUN pip install -r requirements.txt
+
+USER 1000 
+
+docker build . -t rasa/rasa-sdk:1.10.2
+
+docker run rasa/rasa-sdk:1.10.2
+
+# connect two containers you have to create a network
+
+docker network create action_connect
+
+docker run -d -v $(pwd):/app/actions --net action_server --name Action-Connect rasa/rasa-sdk:1.10.2
+
+change the name of localhost to Action-Server
+
+docker ps 
+
+train again
+
+docker run --user 1000 -it -v $(pwd):/app -p 5005:5005 --net action_connect rasa/rasa:1.10.7-full shell
+
+
+
+
+
+
+create network 
+
+docker network action_server   
+
+docker run -d -v $(pwd):/app/actions --net action_server --name Action-Connect rasa/rasa-sdk:1.10.2
+
+docker run --user 1000 -it -v $(pwd):/app rasa/rasa:1.10.2-full train
+
+docker run --user 1000 -it -v $(pwd):/app -p 5005:5005 --net action_server rasa/rasa:1.10.7-full shell
+
+docker run --user 1000 -it -v $(pwd):/app -p 5005:5005 --net action_server rasa/rasa:1.10.7-full run -m models --enable-api --cors "*"
+
+
+ 
+class ActionHelloWorld(Action):
+
+    def name(self) -> Text:
+        return "action_hello_world"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(template="action_hello_world")
+        dispatcher.utter_message(text="Actions called.")
+
+        return []
