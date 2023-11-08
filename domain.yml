@@ -1,50 +1,70 @@
+actions:
+- action_customer_details_request
+- action_hello_world
+- utter_cheer_up
+- utter_did_that_help
+- utter_diet_info
+- utter_exercise_info
+- utter_goodbye
+- utter_greet
+- utter_happy
+- utter_iamabot
+- utter_stress_info
+
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - ask_exercise
-  - ask_eat_healthy
-  - ask_lower_stress
+- greet
+- mood_great
+- customer_details_request
+- goodbye
+- affirm
+- deny
+- mood_unhappy
+- bot_challenge
+- ask_exercise
+- ask_eat_healthy
+- ask_lower_stress
+
+slots:
+    customer_id:
+      type: unfeaturized
+
+entities:
+  - customer_id
 
 responses:
-  utter_greet:
-  - text: "Hey! How Can I help you?"
-
   utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
   utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am flexy, powered by Flexydial."
-
-  utter_stress_info:
-  - text: "Feeling stressed is natural, but managing it is key. Try activities like deep breathing, meditation, or going for a walk. Remember, it's okay to take a break and relax."
-
-  utter_exercise_info:
-  - text: "Regular exercise is crucial for maintaining good health. The American Heart Association recommends at least 150 minutes of moderate-intensity aerobic activity or 75 minutes of vigorous-intensity aerobic activity per week, along with muscle-strengthening activities at least two days a week."
-
+  - text: Did that help you?
   utter_diet_info:
-  - text: "Maintaining a healthy diet is essential for overall well-being. A balanced diet includes a variety of fruits, vegetables, whole grains, lean proteins, and healthy fats."
+  - text: Maintaining a healthy diet is essential for overall well-being. A balanced
+      diet includes a variety of fruits, vegetables, whole grains, lean proteins,
+      and healthy fats.
+  utter_exercise_info:
+  - text: Regular exercise is crucial for maintaining good health. The American Heart
+      Association recommends at least 150 minutes of moderate-intensity aerobic activity
+      or 75 minutes of vigorous-intensity aerobic activity per week, along with muscle-strengthening
+      activities at least two days a week.
+  utter_goodbye:
+  - text: Bye
+  utter_greet:
+  - text: Hi ! I am CRMbot. How may I assist you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_iamabot:
+  - text: I am flexy, powered by Flexydial.
+  utter_stress_info:
+  - text: Feeling stressed is natural, but managing it is key. Try activities like
+      deep breathing, meditation, or going for a walk. Remember, it's okay to take
+      a break and relax.
+  utter_form_values:
+  - text: "Please recheck the given ID before proceeding\n
+            customer_id"
 
-actions:
-  - action_hello_world
-  
-
-
-
+forms:
+  - user_form
+      
 session_config:
-  session_expiration_time: 60
   carry_over_slots_to_new_session: true
+  session_expiration_time: 60

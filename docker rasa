@@ -65,7 +65,7 @@ create network
 
 docker network action_server   
 
-docker run -d -v $(pwd):/app/actions --net action_server --name Action-Connect rasa/rasa-sdk:1.10.2
+docker run -d -it -v $(pwd):/app/actions --net action_server --name Action-Connect rasa/rasa-sdk:1.10.2
 
 docker run --user 1000 -it -v $(pwd):/app rasa/rasa:1.10.2-full train
 
