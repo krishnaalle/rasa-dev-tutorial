@@ -40,3 +40,18 @@ action_endpoint:
 #  username: username
 #  password: password
 #  queue: queue
+# Configure the logger to use 'print'
+tracker_store:
+  store_type: in_memory
+
+# Logging configuration
+logging:
+  version: 1
+  disable_existing_loggers: false
+  handlers:
+    console:
+      class: logging.StreamHandler
+  root:
+    level: DEBUG
+    handlers: [console]
+  

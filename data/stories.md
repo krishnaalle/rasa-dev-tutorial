@@ -24,35 +24,73 @@
 
 ## say goodbye
 * goodbye
-  - utter_goodbye
+  - action_end_chat
 
 ## bot challenge
 * bot_challenge
   - utter_iamabot
 
-
-## ask diet questions
-* ask_eat_healthy
-  - utter_diet_info
-
-## ask_stress_questions
-* ask_lower_stress
-  - utter_stress_info
-
-## ask_exercise
-* ask_exercise
-  - action_hello_world
-
-## know_the_user_details path
+## know_the_user_details successful path
 * greet 
   - utter_greet
 * customer_details_request
+  - action_customer_details_request
   - user_form
   - form{"name":"user_form"}
   - form{"name":null}
-  - utter_form_values
+  - action_confirm_id
 * affirm
-  - utter_goodbye 
+  - action_send_api_request
+* goodbye
+  - action_end_chat
+* affirm
+  - utter_goodbye
+
+
+## know_the_user_details reEnter path
+* greet 
+  - utter_greet
+* customer_details_request
+  - action_customer_details_request
+  - user_form
+  - form{"name":"user_form"}
+  - form{"name":null}
+  - action_confirm_id
+* deny
+  - action_customer_details_request
+  - action_confirm_id
+
+## know_the_user_details out_of_scope path
+* greet 
+  - utter_greet
+* customer_details_request
+  - action_customer_details_request
+* out_of_scope
+  - utter_out_scope
+
+## know_the_user_details continue path
+* greet 
+  - utter_greet
+* customer_details_request
+  - action_customer_details_request
+* out_of_scope
+  - utter_out_scope
+* customer_details_request
+  - action_customer_details_request
+  - user_form
+  - form{"name":"user_form"}
+  - form{"name":null}
+  - action_confirm_id
+* affirm
+  - action_send_api_request
+
+<!-- ## know_the_customer_details_with ID
+* customer_details_request_with_id
+  - action_customer_details_with_id -->
+
+## get_the_disposition
+* disposition_request
+- action_get_disposition
 
 # successful path
 user : Hi
@@ -103,4 +141,36 @@ user: ok
 bot : thank you!
 
 
+## interactive_story_1
+* greet
+    - utter_greet
+* out_of_scope
+    - utter_out_scope
+* out_of_scope
+    - utter_out_scope
+* greet
+    - utter_greet
+* customer_details_request
+    - action_customer_details_request
+    - user_form
+    - action_confirm_id
+* goodbye
+    - action_end_chat
 
+## interactive_story_1
+* customer_details_request
+    - action_customer_details_request
+    - user_form
+    - action_confirm_id
+* affirm
+    - action_send_api_request
+* goodbye
+    - action_end_chat
+
+## interactive_story_1
+* customer_details_request
+    - action_customer_details_request
+    - user_form
+    - action_confirm_id
+* deny
+    - action_end_chat

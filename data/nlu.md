@@ -11,6 +11,25 @@
 - goodbye
 - see you around
 - see you later
+- What is the weather like today?
+- Order me a pizza with pepperoni and mushrooms.
+- Open the Google Sheets document for the quarterly report.
+- Schedule a meeting with the marketing team.
+- Find a nearby restaurant
+- Find a nearby restaurant for dinner reservations.
+- Play my favorite song on Spotify.
+- Tell me a joke.
+- Translate "hello" to French.
+- What's the latest news headlines?
+- Book a flight to New York for next week.
+- Set a reminder for tomorrow's meeting at 10 AM.
+- What movies are currently playing in theaters?
+- Can you recommend a good book to read?
+- Convert 100 USD to Euros.
+- How do I bake a chocolate cake?
+- Calculate the tip for a $50 bill.
+- Find a recipe for vegetarian lasagna.
+- Can you help me learn a new language?
 
 ## intent:affirm
 - yes
@@ -18,6 +37,7 @@
 - of course
 - that sounds good
 - correct
+- ok
 
 ## intent:deny
 - no
@@ -26,6 +46,7 @@
 - don't like that
 - no way
 - not really
+- nothing
 
 ## intent:customer_details_request
 - I want to know the customer details
@@ -44,7 +65,51 @@
 - give me the account name of this person
 - i want to the details of a person
 - I want to know the details
+- I want to know customer details
+- i want to know the customer details
+- user details
 
+<!-- ## intent:customer_details_request_with_id
+- I want to know the details of [9238238499](customer_id)
+- Get me information for the customer with ID [123456](customer_id)
+- What are the details of the customer with ID [987654](customer_id)?
+- Can you fetch details for customer ID [567890](customer_id)?
+- I need details for the customer having ID [111222333](customer_id)
+- Tell me about the customer with ID [444555666](customer_id)
+- Provide details for the customer identified by the ID [999888777](customer_id)
+- Retrieve customer information for ID [777666555](customer_id)
+- I want to know more about the customer with the ID [888999000](customer_id)
+- Please fetch details for customer ID [333222111](customer_id)
+- Give me details for customer ID [123456](customer_id)
+- I'd like to know more about the person with ID [789012](customer_id)
+- What information do you have on customer ID [456789](customer_id)?
+- Retrieve details for the customer having ID [345678](customer_id)
+- Can you provide the details for the customer ID [901234](customer_id)?
+- I want to get the customer profile for ID [234567](customer_id)
+- Tell me about the person with the ID [890123](customer_id)
+- Fetch details for the customer ID [567890](customer_id) please
+- Provide me information about the customer with ID [678901](customer_id)
+- I need details for the person identified by the ID [123789](customer_id)
+- Share the customer details for the ID [987654](customer_id)
+- What do you know about customer ID [456123](customer_id)? -->
+  
+## intent:disposition_request
+- what is the disposition of the customer
+- say me the disposition
+- give me disposition
+- tell me about the customer's disposition
+- provide customer disposition
+- show customer disposition
+- any updates on customer disposition
+- can you inform me about the customer's disposition
+- describe the customer's disposition
+- I want to know the disposition of the customer
+- status of customer disposition
+- tell me the current disposition of the customer
+- update me on the disposition of the customer
+- describe the disposition status of the customer
+- share the customer's disposition with me
+  
 ## intent:mood_great
 - perfect
 - very good
@@ -72,18 +137,6 @@
 - are you a human?
 - am I talking to a bot?
 - am I talking to a human?
-
-## intent:ask_lower_stress
-- what do I do if I'm too stressed?
-- how can I reduce stress?
-- give me tips for reducing stress
-- stress management techniques
-- ways to relax when stressed
-- coping with stress
-- stress relief strategies
-- dealing with anxiety
-- how to calm down when stressed
-- techniques to lower stress levels
 
 ## intent:ask_eat_healthy
 - what's considered a healthy diet?

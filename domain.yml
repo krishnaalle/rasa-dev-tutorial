@@ -1,6 +1,10 @@
 actions:
+- action_confirm_id
 - action_customer_details_request
+- action_get_disposition
+- action_end_chat
 - action_hello_world
+- action_send_api_request
 - utter_cheer_up
 - utter_did_that_help
 - utter_diet_info
@@ -9,43 +13,30 @@ actions:
 - utter_greet
 - utter_happy
 - utter_iamabot
+- utter_out_scope
 - utter_stress_info
-
+entities:
+- customer_id
+forms:
+- user_form
 intents:
-- greet
-- mood_great
+- disposition_request
 - customer_details_request
-- goodbye
-- affirm
 - deny
+- affirm
+- goodbye
+- greet
+- out_of_scope
+# - customer_details_request_with_id
+- mood_great
 - mood_unhappy
 - bot_challenge
-- ask_exercise
-- ask_eat_healthy
-- ask_lower_stress
-
-slots:
-    customer_id:
-      type: unfeaturized
-
-entities:
-  - customer_id
-
 responses:
   utter_cheer_up:
   - image: https://i.imgur.com/nGF1K8f.jpg
     text: 'Here is something to cheer you up:'
   utter_did_that_help:
   - text: Did that help you?
-  utter_diet_info:
-  - text: Maintaining a healthy diet is essential for overall well-being. A balanced
-      diet includes a variety of fruits, vegetables, whole grains, lean proteins,
-      and healthy fats.
-  utter_exercise_info:
-  - text: Regular exercise is crucial for maintaining good health. The American Heart
-      Association recommends at least 150 minutes of moderate-intensity aerobic activity
-      or 75 minutes of vigorous-intensity aerobic activity per week, along with muscle-strengthening
-      activities at least two days a week.
   utter_goodbye:
   - text: Bye
   utter_greet:
@@ -53,18 +44,19 @@ responses:
   utter_happy:
   - text: Great, carry on!
   utter_iamabot:
-  - text: I am flexy, powered by Flexydial.
-  utter_stress_info:
-  - text: Feeling stressed is natural, but managing it is key. Try activities like
-      deep breathing, meditation, or going for a walk. Remember, it's okay to take
-      a break and relax.
-  utter_form_values:
-  - text: "Please recheck the given ID before proceeding\n
-            customer_id"
-
-forms:
-  - user_form
-      
+  - text: I'm just a computer program here to help you!
+  utter_out_scope:
+  - text: I'm here to help with CRM tasks. For other inquiries, please consult a specialized
+      service or expert.
 session_config:
   carry_over_slots_to_new_session: true
   session_expiration_time: 60
+slots:
+  customer_id:
+    type: unfeaturized
+  fetched_data:
+    type: unfeaturized
+  requested_slot:
+    type: unfeaturized
+  disposition:
+    type: unfeaturized
